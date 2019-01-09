@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use LINE\LINEBot;
 use LINE\LINEBot\HTTPClient\CurlHTTPClient;
-use LINE\LINEBot\MessageBuilder\TextMessageBuiilder;
+use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
 
 class WebhookController extends Controller
 {
