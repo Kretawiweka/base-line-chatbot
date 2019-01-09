@@ -22,7 +22,7 @@ class WebhookController extends Controller
      * @return void
      */
     public function __construct()
-    {
+    {   
         // create bot object
         $httpClient = new CurlHTTPClient(env('CHANNEL_ACCESS_TOKEN'));
         $this->bot = new LINEBot($httpClient, ['channelSecret' => env('CHANNEL_SECRET')]);
@@ -52,12 +52,11 @@ class WebhookController extends Controller
             if (is_array($this->events['events'])) {
                 foreach ($this->events['events'] as $event) {
                     if ($event['type'] == 'message') {
-                        // your playground
-                        $textMessageBuilder = new TextMessageBuilder('Nurhadi Aldo for RI1-RI2');
-                        $this->post->replyMessage($event['replyToken'], $textMessageBuilder);
+                        $textMessageBuilder = new TextMessageBuilder('tes halo');
+                        $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
                     } else {
-                        $textMessageBuilder = new TextMessageBuilder('Selamat Datang di Bot Nurhadi-Aldo');
-                        $this->post->replyMessage($event['replyToken'], $textMessageBuilder);
+                        $textMessageBuilder = new TextMessageBuilder('makasih udah add broh!');
+                        $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
                     }
                 }
             }
