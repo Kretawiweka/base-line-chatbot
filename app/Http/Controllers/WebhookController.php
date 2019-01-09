@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use LINE\LINEBot;
 use LINE\LINEBot\HTTPClient\CurlHTTPClient;
+use LINE\LINEBot\MessageBuilder\TextMessageBuiilder;
 
 class WebhookController extends Controller
 {
@@ -52,8 +53,11 @@ class WebhookController extends Controller
                 foreach ($this->events['events'] as $event) {
                     if ($event['type'] == 'message') {
                         // your playground
+                        $textMessageBuilder = new TextMessageBuilder('Nurhadi Aldo for RI1-RI2');
+                        $this->post->replyMessage($event['replyToken'], $textMessageBuilder);
                     } else {
-                        // add bot
+                        $textMessageBuilder = new TextMessageBuilder('Selamat Datang di Bot Nurhadi-Aldo');
+                        $this->post->replyMessage($event['replyToken'], $textMessageBuilder);
                     }
                 }
             }
